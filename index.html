@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>The Complete Hajj Guide – Your Sacred Journey Companion</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #F0D080;
+  --gold-pale: #FDF6E3;
+  --deep: #0B1620;
+  --navy: #152535;
+  --teal: #1A5C6B;
+  --teal-light: #2E8FA3;
+  --cream: #FAF5EC;
+  --text: #1C1C1C;
+  --muted: #666;
+  --white: #fff;
+  --border: rgba(201,168,76,0.25);
+  --radius: 10px;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════════════
+   STICKY MOBILE BAR (mobile-only)
+══════════════════════════════════════════ */
+.sticky-mobile {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: var(--deep);
+  border-top: 1px solid rgba(201,168,76,0.4);
+  padding: 12px 16px;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.4);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.sticky-mobile.visible { transform: translateY(0); }
+.sticky-mobile-price {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.sm-old { color: #888; text-decoration: line-through; font-size: 0.72rem; }
+.sm-new { color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 900; }
+.btn-sm-cta {
+  background: linear-gradient(135deg, #C9A84C, #F0D080);
+  color: var(--deep);
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  padding: 13px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ══════════════════════════════════════════
+   OFFER RIBBON
+══════════════════════════════════════════ */
+.ribbon {
+  background: linear-gradient(90deg, #0B1620, #1A5C6B, #0B1620);
+  color: var(--gold-light);
+  text-align: center;
+  padding: 11px 16px;
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.ribbon span {
+  background: var(--gold);
+  color: var(--deep);
+  padding: 2px 9px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin: 0 5px;
+  animation: glow 2.4s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes glow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.5); }
+  50% { box-shadow: 0 0 14px 4px rgba(201,168,76,0.35); }
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  background: linear-gradient(160deg, #0B1620 0%, #152535 55%, #1A3A45 100%);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pattern-overlay {
+  position:absolute; inset:0;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath fill='none' stroke='%23C9A84C' stroke-width='0.8' d='M40 0 L80 40 L40 80 L0 40 Z M40 10 L70 40 L40 70 L10 40 Z M40 20 L60 40 L40 60 L20 40 Z'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* Radial glow behind content */
+.hero-glow {
+  position:absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 120vw; height: 120vw;
+  max-width: 900px; max-height: 900px;
+  background: radial-gradient(ellipse at center, rgba(201,168,76,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 72px 20px 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Big decorative Arabic "Kaaba" symbol */
+.hero-kaaba-glyph {
+  font-size: clamp(3.5rem, 10vw, 6rem);
+  margin-bottom: 16px;
+  line-height: 1;
+  filter: drop-shadow(0 0 30px rgba(201,168,76,0.35));
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+.top-line, .bottom-line {
+  width: 100px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+.top-line { margin-bottom: 24px; }
+.bottom-line { margin-top: 28px; }
+
+.hero-badge {
+  display: inline-block;
+  border: 1px solid rgba(201,168,76,0.5);
+  color: var(--gold);
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+.arabic-top {
+  font-family: 'Amiri', serif;
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 7vw, 3.6rem);
+  color: var(--white);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.72rem, 2.2vw, 0.9rem);
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.hero-desc {
+  max-width: 580px;
+  margin: 0 auto 28px;
+  color: rgba(255,255,255,0.75);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  line-height: 1.8;
+  font-weight: 300;
+}
+.hero-desc strong { color: var(--gold-light); font-weight:700; }
+
+/* Social proof mini */
+.hero-social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.sp-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
+.sp-text { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+.hero-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold-light);
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  padding: 7px 18px;
+  border-radius: 30px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.urgency-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #e74c3c;
+  animation: blink 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
+
+.hero-price-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.hp-old { color: #888; text-decoration: line-through; font-size: 1rem; }
+.hp-new { color: var(--gold); font-family:'Cinzel',serif; font-size: 1.7rem; font-weight:900; }
+.hp-badge {
+  background: #e74c3c; color:#fff;
+  font-size: 0.65rem; font-weight:900; letter-spacing:1px;
+  padding: 4px 9px; border-radius:3px; text-transform:uppercase;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, #C9A84C, #F0D080, #C9A84C);
+  color: var(--deep);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+  letter-spacing: 1px;
+  padding: 17px 44px;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none; cursor: pointer;
+  box-shadow: 0 6px 30px rgba(201,168,76,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 40px rgba(201,168,76,0.5); }
+.btn-primary:active { transform:translateY(0); }
+
+.cta-note {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════
+   TRUST STRIP
+══════════════════════════════════════════ */
+.trust-strip {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  border-top: 1px solid var(--border);
+  padding: 16px 16px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  color: var(--teal);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.trust-item .icon { font-size: 1rem; }
+
+/* ══════════════════════════════════════════
+   COUNTDOWN (right after trust strip)
+══════════════════════════════════════════ */
+.countdown-section {
+  background: #fff8ec;
+  border-bottom: 3px solid var(--gold);
+  padding: 28px 20px;
+  text-align: center;
+}
+.cd-top-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c0392b;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.countdown-section h3 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  color: var(--deep);
+  margin-bottom: 18px;
+  line-height: 1.35;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0;
+}
+.cd-box {
+  background: var(--deep);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 12px 14px;
+  min-width: 62px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.cd-num {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+}
+.cd-label { font-size: 0.55rem; letter-spacing: 2px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; display:block; }
+
+/* ══════════════════════════════════════════
+   SECTION BASE
+══════════════════════════════════════════ */
+section { padding: 60px 20px; }
+.container { max-width: 860px; margin: 0 auto; }
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.3rem, 4vw, 1.95rem);
+  color: var(--deep);
+  text-align: center;
+  margin-bottom: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.section-divider {
+  width: 56px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 38px;
+}
+
+/* ══════════════════════════════════════════
+   WHAT YOU GET — BOOKS
+══════════════════════════════════════════ */
+.inside-section { background: var(--white); }
+.books-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+@media(max-width:600px){ .books-grid { grid-template-columns: 1fr; } }
+
+.book-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--cream);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.book-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.1); }
+
+.book-card-header {
+  padding: 28px 22px 20px;
+  background: linear-gradient(135deg, var(--deep), var(--navy));
+  position: relative; overflow:hidden;
+}
+.book-card-header::before {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(circle at 80% 20%, rgba(201,168,76,0.14), transparent 60%);
+}
+/* Big number watermark */
+.book-card-header::after {
+  content: attr(data-num);
+  position:absolute; right:-10px; top:-10px;
+  font-family:'Cinzel',serif; font-size:6rem; font-weight:900;
+  color:rgba(201,168,76,0.07); line-height:1;
+  pointer-events:none;
+}
+.book-num { font-family:'Cinzel',serif; font-size:0.62rem; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:6px; }
+.book-card-header h3 { font-family:'Cinzel',serif; color:var(--white); font-size:1.05rem; font-weight:700; line-height:1.3; position:relative; z-index:1; }
+.book-card-header .arabic { font-family:'Amiri',serif; color:var(--gold-light); font-size:1rem; opacity:0.7; margin-top:6px; position:relative; z-index:1; }
+
+.book-card-body { padding: 20px 22px; }
+.book-feature {
+  display: flex; align-items:flex-start; gap:10px;
+  margin-bottom: 12px; font-size:0.875rem; color:var(--text); line-height:1.55;
+}
+.book-feature .dot { width:6px; height:6px; border-radius:50%; background:var(--gold); margin-top:7px; flex-shrink:0; }
+
+/* ══════════════════════════════════════════
+   STATS BAR
+══════════════════════════════════════════ */
+.stats-bar {
+  background: var(--deep);
+  padding: 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1px;
+  background: rgba(201,168,76,0.15);
+}
+@media(max-width:580px){ .stats-grid { grid-template-columns: repeat(2,1fr); } }
+
+.stat-item {
+  background: var(--deep);
+  padding: 28px 14px;
+  text-align: center;
+}
+.stat-num {
+  font-family:'Cinzel',serif; font-size:2rem; font-weight:900;
+  color:var(--teal-light); line-height:1; margin-bottom:6px;
+}
+.stat-num span { color:var(--gold); }
+.stat-label { font-size:0.72rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1.5px; line-height:1.45; }
+
+/* ══════════════════════════════════════════
+   FEATURES
+══════════════════════════════════════════ */
+.features-section {
+  background: linear-gradient(170deg, #0f1e2c 0%, #1A3A45 100%);
+  position:relative; overflow:hidden;
+}
+.features-section::before {
+  content:''; position:absolute; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='%23C9A84C' stroke-width='0.4'/%3E%3C/svg%3E");
+  background-size: 60px 60px; opacity:0.04;
+}
+.features-section .section-title { color:var(--white); }
+.features-section .section-label { color:var(--gold-light); }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+@media(max-width:680px){ .features-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:400px){ .features-grid { grid-template-columns: 1fr; } }
+
+.feature-card {
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: var(--radius);
+  padding: 26px 18px;
+  text-align:center;
+  background: rgba(255,255,255,0.04);
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.feature-card:hover { border-color:rgba(201,168,76,0.45); background:rgba(255,255,255,0.07); transform:translateY(-3px); }
+.feature-icon { font-size:1.7rem; margin-bottom:12px; display:block; }
+.feature-card h4 { font-family:'Cinzel',serif; font-size:0.8rem; color:var(--gold-light); letter-spacing:1px; margin-bottom:8px; font-weight:600; }
+.feature-card p { font-size:0.8rem; color:rgba(255,255,255,0.58); line-height:1.65; }
+
+/* ══════════════════════════════════════════
+   MID CTA
+══════════════════════════════════════════ */
+.mid-cta {
+  background: linear-gradient(135deg, var(--deep), #1A3A45);
+  padding: 44px 20px;
+  text-align:center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.mid-cta-price { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+.mid-old { color:#888; text-decoration:line-through; font-size:1rem; }
+.mid-new { color:var(--gold); font-family:'Cinzel',serif; font-size:1.8rem; font-weight:900; }
+.mid-cta p { color:rgba(255,255,255,0.65); font-size:0.9rem; margin-bottom:20px; font-weight:300; line-height:1.7; }
+.mid-cta p strong { color:var(--gold-light); }
+
+/* ══════════════════════════════════════════
+   COMPARISON
+══════════════════════════════════════════ */
+.comparison-section { background:var(--white); padding:60px 20px; }
+.comparison-table {
+  width:100%; border-collapse:collapse;
+  border-radius:10px; overflow:hidden;
+  box-shadow:0 4px 24px rgba(0,0,0,0.08);
+  font-size: clamp(0.78rem, 2vw, 0.86rem);
+}
+.comparison-table th {
+  padding:16px 14px;
+  font-family:'Cinzel',serif; font-size:0.72rem; letter-spacing:1.5px;
+  text-transform:uppercase; text-align:center;
+}
+.comparison-table th:first-child { text-align:left; background:#f5f5f5; color:var(--muted); }
+.comparison-table th.col-digital { background:linear-gradient(135deg,var(--deep),#1A3A45); color:var(--gold-light); }
+.comparison-table th.col-physical { background:#e8e8e8; color:#999; }
+.comparison-table td { padding:13px 14px; border-top:1px solid rgba(0,0,0,0.06); text-align:center; vertical-align:middle; }
+.comparison-table td:first-child { text-align:left; font-weight:600; color:var(--text); background:#fafafa; }
+.comparison-table tr:nth-child(even) td { background:rgba(0,0,0,0.02); }
+.comparison-table tr:nth-child(even) td:first-child { background:#f5f5f5; }
+.comparison-table td.col-digital { color:var(--teal); font-weight:700; }
+.comparison-table td.col-physical { color:#bbb; }
+.badge-best {
+  display:inline-block; background:var(--gold); color:var(--deep);
+  font-size:0.55rem; font-weight:900; letter-spacing:1.5px;
+  text-transform:uppercase; padding:3px 7px; border-radius:2px;
+  margin-left:5px; vertical-align:middle;
+}
+
+/* ══════════════════════════════════════════
+   PROMISE
+══════════════════════════════════════════ */
+.promise-section {
+  background: var(--gold-pale);
+  border-top: 2px solid rgba(201,168,76,0.2);
+  border-bottom: 2px solid rgba(201,168,76,0.2);
+  text-align:center; padding:64px 20px;
+}
+.promise-box { max-width:680px; margin:0 auto; }
+.promise-arabic { font-family:'Amiri',serif; font-size:clamp(1.4rem,4vw,2rem); color:var(--teal); margin-bottom:12px; line-height:1.65; }
+.promise-hadith { font-style:italic; color:var(--teal); font-size:clamp(0.95rem,2.5vw,1.05rem); line-height:1.7; margin-bottom:6px; }
+.promise-ref { font-size:0.76rem; color:var(--muted); letter-spacing:1px; }
+.promise-text { margin-top:28px; font-size:0.95rem; color:var(--text); line-height:1.85; font-weight:300; }
+.promise-text strong { color:var(--teal); font-weight:700; }
+
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testimonial-section {
+  background: linear-gradient(170deg,var(--deep) 0%,#1A3A45 100%);
+  padding:64px 20px;
+  text-align:center; position:relative; overflow:hidden;
+}
+.testimonial-section::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 70% 50% at 50% 50%, rgba(201,168,76,0.06), transparent 70%);
+}
+.testimonial-section .section-title { color:var(--white); position:relative; z-index:1; }
+.testimonial-section .section-label { color:var(--gold-light); position:relative; z-index:1; }
+.testimonial-section .section-divider { position:relative; z-index:1; }
+
+.testimonial-slider { position:relative; z-index:1; max-width:680px; margin:0 auto; }
+.testimonial-card {
+  background:rgba(255,255,255,0.05); border:1px solid rgba(201,168,76,0.22);
+  border-radius:12px; padding:28px 24px; display:none;
+}
+.testimonial-card.active { display:block; animation:fadeIn 0.5s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+.t-stars { color:var(--gold); font-size:1.05rem; margin-bottom:14px; letter-spacing:3px; }
+.t-text { font-size:0.93rem; color:rgba(255,255,255,0.8); line-height:1.85; font-style:italic; margin-bottom:20px; }
+.t-author { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; }
+.t-avatar {
+  width:42px; height:42px; border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--gold));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Cinzel',serif; font-size:0.88rem; color:var(--white); font-weight:700; flex-shrink:0;
+}
+.t-info { text-align:left; }
+.t-name { font-family:'Cinzel',serif; font-size:0.76rem; color:var(--gold-light); letter-spacing:1px; }
+.t-role { font-size:0.7rem; color:rgba(255,255,255,0.4); margin-top:2px; }
+.t-badge {
+  background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.3);
+  color:var(--gold); font-size:0.6rem; letter-spacing:1px; text-transform:uppercase;
+  padding:3px 9px; border-radius:2px;
+}
+.testimonial-dots { display:flex; justify-content:center; gap:8px; margin-top:18px; position:relative; z-index:1; }
+.t-dot { width:8px; height:8px; border-radius:50%; background:rgba(201,168,76,0.3); border:none; cursor:pointer; transition:background 0.2s,transform 0.2s; padding:0; -webkit-tap-highlight-color:transparent; }
+.t-dot.active { background:var(--gold); transform:scale(1.3); }
+
+.pending-reviews {
+  margin-top:24px; padding:14px 18px;
+  background:rgba(255,255,255,0.04); border:1px dashed rgba(201,168,76,0.25);
+  border-radius:8px; color:rgba(255,255,255,0.42); font-size:0.8rem; line-height:1.65;
+  position:relative; z-index:1; font-style:italic;
+  max-width:460px; margin-left:auto; margin-right:auto; margin-top:20px;
+}
+.pending-reviews strong { color:var(--gold-light); font-style:normal; }
+
+/* ══════════════════════════════════════════
+   BONUS
+══════════════════════════════════════════ */
+.bonus-section {
+  background:linear-gradient(135deg,#0B1620,#1A5C6B);
+  text-align:center; position:relative; overflow:hidden;
+}
+.bonus-section::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.07), transparent 70%);
+}
+.bonus-section .section-title { color:var(--white); position:relative; z-index:1; }
+.bonus-section .section-label { color:var(--gold-light); position:relative; z-index:1; }
+.bonus-section .section-divider { position:relative; z-index:1; }
+
+.bonus-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; position:relative; z-index:1; }
+@media(max-width:580px){ .bonus-grid { grid-template-columns:1fr; } }
+
+.bonus-card {
+  border:1px solid rgba(201,168,76,0.22); border-radius:var(--radius);
+  padding:26px 18px; background:rgba(255,255,255,0.05); text-align:center;
+  transition:transform 0.25s, border-color 0.25s;
+}
+.bonus-card:hover { transform:translateY(-3px); border-color:rgba(201,168,76,0.4); }
+.bonus-icon { font-size:2.2rem; margin-bottom:10px; display:block; }
+.bonus-tag {
+  display:inline-block; background:var(--gold); color:var(--deep);
+  font-size:0.6rem; font-weight:900; letter-spacing:2px; text-transform:uppercase;
+  padding:3px 10px; border-radius:2px; margin-bottom:10px;
+}
+.bonus-card h4 { font-family:'Cinzel',serif; font-size:0.88rem; color:var(--white); margin-bottom:8px; font-weight:600; }
+.bonus-card p { font-size:0.8rem; color:rgba(255,255,255,0.52); line-height:1.65; }
+
+/* ══════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════ */
+.faq-section { background:var(--cream); padding:72px 20px; }
+.faq-section .container { max-width:800px; }
+.faq-list { display:flex; flex-direction:column; gap:10px; }
+.faq-item {
+  border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
+  background:var(--white); box-shadow:0 2px 12px rgba(0,0,0,0.04);
+  transition:box-shadow 0.25s;
+}
+.faq-item:hover { box-shadow:0 4px 20px rgba(0,0,0,0.08); }
+.faq-q {
+  width:100%; background:none; border:none; text-align:left;
+  padding:18px 20px; cursor:pointer; display:flex; justify-content:space-between;
+  align-items:center; gap:12px; font-family:'Lato',sans-serif;
+  font-size:clamp(0.88rem,2.5vw,0.96rem); font-weight:700; color:var(--deep);
+  line-height:1.4; transition:background 0.2s; -webkit-tap-highlight-color:transparent;
+}
+.faq-q:hover { background:rgba(201,168,76,0.06); }
+.faq-q.open { background:rgba(201,168,76,0.08); color:var(--teal); }
+.faq-arrow {
+  flex-shrink:0; width:24px; height:24px; border-radius:50%;
+  border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+  font-size:0.75rem; color:var(--gold); transition:transform 0.25s, background 0.25s;
+}
+.faq-q.open .faq-arrow { transform:rotate(45deg); background:var(--gold); color:var(--deep); }
+.faq-a {
+  max-height:0; overflow:hidden;
+  transition:max-height 0.35s ease, padding 0.3s ease;
+  font-size:0.9rem; color:var(--muted); line-height:1.8;
+  padding:0 20px;
+  border-top:0px solid var(--border);
+}
+.faq-a.open {
+  max-height:400px;
+  padding:16px 20px 20px;
+  border-top:1px solid var(--border);
+}
+.faq-a strong { color:var(--teal); font-weight:700; }
+
+/* ══════════════════════════════════════════
+   FINAL CTA
+══════════════════════════════════════════ */
+.final-cta {
+  background: var(--gold-pale);
+  text-align:center; padding:72px 20px 96px;
+}
+.final-cta .section-title { color:var(--deep); }
+
+.offer-box {
+  display:inline-block; border:2px solid var(--gold);
+  border-radius:14px; padding:32px 36px; margin:26px auto;
+  background:var(--white); box-shadow:0 16px 60px rgba(0,0,0,0.1);
+  max-width:460px; width:100%;
+}
+@media(max-width:400px){ .offer-box { padding:24px 18px; } }
+
+.price-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:6px; flex-wrap:wrap; }
+.price-original { font-family:'Cinzel',serif; font-size:1.2rem; color:#aaa; text-decoration:line-through; }
+.price-sale { font-family:'Cinzel',serif; font-size:2.3rem; font-weight:900; color:var(--teal); }
+.price-badge { background:#e74c3c; color:#fff; font-size:0.63rem; font-weight:900; letter-spacing:1px; padding:4px 9px; border-radius:3px; text-transform:uppercase; }
+.price-note { font-size:0.76rem; color:var(--muted); margin-bottom:18px; }
+
+.code-box {
+  background:var(--cream); border:1.5px dashed var(--gold);
+  border-radius:6px; padding:12px 16px; margin-bottom:20px;
+  font-size:0.78rem; color:var(--muted);
+}
+.code-box strong { font-family:'Cinzel',serif; color:var(--teal); font-size:1.1rem; letter-spacing:3px; display:block; margin-top:4px; }
+
+.final-cta .btn-primary { font-size:clamp(0.88rem,2.5vw,1rem); padding:18px 48px; }
+.guarantee { margin-top:14px; font-size:0.76rem; color:var(--muted); line-height:1.55; }
+.final-tagline { max-width:520px; margin:24px auto 0; font-size:0.88rem; color:var(--muted); line-height:1.85; }
+.final-tagline strong { color:var(--teal); }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.footer-strip {
+  background:var(--deep);
+  padding:28px 20px;
+  text-align:center;
+}
+.footer-arabic { font-family:'Amiri',serif; font-size:1.4rem; color:var(--gold-light); margin-bottom:8px; opacity:0.85; }
+.footer-text { font-size:0.76rem; color:rgba(255,255,255,0.32); letter-spacing:0.8px; }
+
+/* ══════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════ */
+.reveal {
+  opacity:0; transform:translateY(22px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ══════════════════════════════════════════
+   HERO ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.hero-content > * { animation:fadeUp 0.7s ease both; }
+.hero .hero-badge      { animation-delay:0.1s; }
+.hero .arabic-top      { animation-delay:0.2s; }
+.hero h1               { animation-delay:0.3s; }
+.hero .hero-sub        { animation-delay:0.38s; }
+.hero .hero-desc       { animation-delay:0.46s; }
+.hero .hero-social-proof { animation-delay:0.5s; }
+.hero .hero-urgency    { animation-delay:0.54s; }
+.hero .hero-price-hint { animation-delay:0.58s; }
+.hero .cta-wrap        { animation-delay:0.64s; }
+
+/* ── Responsive tweaks ── */
+@media(max-width:480px){
+  .trust-strip { gap:10px 14px; }
+  .trust-item { font-size:0.73rem; }
+  .offer-box { margin:16px auto; }
+}
+@media(min-width:768px){
+  .sticky-mobile { display:none !important; }
+}
+</style>
+</head>
+<body>
+
+
+  
+</div>
+
+<!-- ══ STICKY MOBILE BOTTOM BAR ══ -->
+<div class="sticky-mobile" id="stickyMobile">
+  <div class="sticky-mobile-price">
+    <span class="sm-old">Was $19</span>
+    <span class="sm-new">$10 Today</span>
+  </div>
+  <a href="https://payhip.com/b/Hld0u" target="_blank" rel="noopener" class="btn-sm-cta">Download Now →</a>
+</div>
+
+<!-- ══ RIBBON ══ -->
+<div class="ribbon">
+  🕌 Hajj Season Only — Use code <span>HAJJ2026</span> for extra 20% off 🕌
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="pattern-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-kaaba-glyph">🕋</div>
+    <div class="top-line"></div>
+    <div class="hero-badge">✦ New Release — Authentic &amp; Illustrated ✦</div>
+    <div class="arabic-top">بسم الله الرحمن الرحيم</div>
+    <h1>The Complete<br><em>Hajj Guide</em></h1>
+    <p class="hero-sub">Beautiful Illustrations · Authentic Narration · 41 Verified Duas</p>
+    <p class="hero-desc">
+      Everything you need for the <strong>most important journey of your life</strong> — step-by-step guidance, every authentic dua from Ihram to Farewell Tawaf. Sahih sources only. Zero fabricated supplications.
+    </p>
+
+    <div class="hero-social-proof">
+      <span class="sp-stars">★★★★★</span>
+      <span class="sp-text">Trusted by first-time pilgrims · Hajj 2024</span>
+    </div>
+
+    <div class="hero-urgency">
+      <span class="urgency-dot"></span>
+      Hajj Season Price — Limited Time
+    </div>
+
+    <div class="hero-price-hint">
+      <span class="hp-old">$19</span>
+      <span class="hp-new">$10</span>
+      <span class="hp-badge">47% Off</span>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://payhip.com/b/Hld0u" target="_blank" rel="noopener" class="btn-primary">Get Your Copy Now</a>
+      <p class="cta-note">📖 Instant PDF Download · Works on any device · Use code HAJJ2026 for extra 20% off</p>
+    </div>
+    <div class="bottom-line"></div>
+  </div>
+</section>
+
+<!-- ══ TRUST STRIP ══ -->
+<div class="trust-strip">
+  <div class="trust-item"><span class="icon">✅</span> Sahih Sources Only</div>
+  <div class="trust-item"><span class="icon">📖</span> Arabic + Transliteration</div>
+  <div class="trust-item"><span class="icon">🔖</span> Chronological Order</div>
+  <div class="trust-item"><span class="icon">🌙</span> 41 Authentic Duas</div>
+  <div class="trust-item"><span class="icon">⚡</span> Instant Download</div>
+</div>
+
+<!-- ══ COUNTDOWN (immediately after trust strip) ══ -->
+<div class="countdown-section">
+  <div class="cd-top-label">
+    <span class="urgency-dot"></span>
+    Time-Sensitive Offer
+  </div>
+  <h3>This Hajj Season Price Disappears When<br>The Season Ends</h3>
+  <div class="countdown">
+    <div class="cd-box"><span class="cd-num" id="cd-h">00</span><span class="cd-label">Hours</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-m">00</span><span class="cd-label">Mins</span></div>
+    <div class="cd-box"><span class="cd-num" id="cd-s">00</span><span class="cd-label">Secs</span></div>
+  </div>
+</div>
+
+<!-- ══ WHAT'S INSIDE ══ -->
+<section class="inside-section reveal">
+  <div class="container">
+    <p class="section-label">What You Get</p>
+    <h2 class="section-title">Two Books. One Complete Journey.</h2>
+    <div class="section-divider"></div>
+    <div class="books-grid">
+      <div class="book-card">
+        <div class="book-card-header" data-num="01">
+          <p class="book-num">Book 01</p>
+          <h3>The Complete Hajj Guide</h3>
+          <p class="arabic">دليل الحج الكامل</p>
+        </div>
+        <div class="book-card-body">
+          <div class="book-feature"><span class="dot"></span><span>Step-by-step visual guide through every ritual — from Ihram to the Farewell Tawaf</span></div>
+          <div class="book-feature"><span class="dot"></span><span>Beautiful authentic illustrations to help you visualise each location and action</span></div>
+          <div class="book-feature"><span class="dot"></span><span>Clear Arabic narrations with simple English explanations anyone can follow</span></div>
+          <div class="book-feature"><span class="dot"></span><span>Covers Hajj Al-Tamattu, Ifrad and Qiran — all three types explained</span></div>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-card-header" data-num="02">
+          <p class="book-num">Book 02</p>
+          <h3>Complete Dua Guide of Hajj</h3>
+          <p class="arabic">أدعية الحج الكاملة</p>
+        </div>
+        <div class="book-card-body">
+          <div class="book-feature"><span class="dot"></span><span><strong>41 authentic duas</strong> in exact chronological order — know what to say at every single step</span></div>
+          <div class="book-feature"><span class="dot"></span><span>Every dua sourced from Quran, Sahih Bukhari, Sahih Muslim — zero fabricated supplications</span></div>
+          <div class="book-feature"><span class="dot"></span><span>Full Arabic · phonetic transliteration · English meaning · exact hadith reference</span></div>
+          <div class="book-feature"><span class="dot"></span><span>Includes the Day of Arafat duas — the most powerful duas in all of Hajj</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="https://payhip.com/b/Hld0u" target="_blank" rel="noopener" class="btn-primary">Download Both Books — $10</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-num">41<span>+</span></div>
+      <div class="stat-label">Authentic<br>Duas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">11</div>
+      <div class="stat-label">Steps of<br>Hajj Covered</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" style="color:#e74c3c;">0</div>
+      <div class="stat-label">Weak or<br>Fabricated Duas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">2<span style="font-size:1rem;color:var(--gold-light);">in1</span></div>
+      <div class="stat-label">Books in<br>One Bundle</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FEATURES ══ -->
+<section class="features-section reveal">
+  <div class="container">
+    <p class="section-label">Why This Guide</p>
+    <h2 class="section-title">What Makes This Different</h2>
+    <div class="section-divider"></div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📜</span>
+        <h4>Sahih Sources Only</h4>
+        <p>Every dua traced to Quran, Sahih Bukhari or Sahih Muslim. No guessing, no weak chains.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🗺️</span>
+        <h4>Chronological Order</h4>
+        <p>No flipping back and forth. Open at any stage and know exactly what comes next.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🌙</span>
+        <h4>Arabic + Phonetics</h4>
+        <p>Original Arabic script with easy phonetic transliteration so you say every word correctly.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <h4>Any Device</h4>
+        <p>Phone, tablet, laptop. Print a copy to carry. Always there when you need it.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔍</span>
+        <h4>Zoom Arabic Text</h4>
+        <p>Pinch to zoom on any screen. Never squint at small print during your sacred journey.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h4>Instant Access</h4>
+        <p>Download immediately after purchase. No waiting. No shipping. No hassle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MID CTA ══ -->
+<div class="mid-cta reveal">
+  <div class="mid-cta-price">
+    <span class="mid-old">$19</span>
+    <span class="mid-new">$10</span>
+    <span class="hp-badge">Save $9</span>
+  </div>
+  <p>Both books. 41 authentic duas. Instant download. <strong>Everything you need for Hajj Mabrur.</strong></p>
+  <a href="https://payhip.com/b/Hld0u" target="_blank" rel="noopener" class="btn-primary">Download Both Books — $10</a>
+</div>
+
+<!-- ══ COMPARISON ══ -->
+<section class="comparison-section reveal">
+  <div class="container">
+    <p class="section-label">Why Digital?</p>
+    <h2 class="section-title">Digital Guide vs Physical Book</h2>
+    <div class="section-divider"></div>
+    <div style="overflow-x:auto;">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-digital">📱 Digital Guide <span class="badge-best">Best</span></th>
+          <th class="col-physical">📚 Physical Book</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Price</td>
+          <td class="col-digital">$10 — 47% off today</td>
+          <td class="col-physical" style="color:#bbb;">$20–$40+</td>
+        </tr>
+        <tr>
+          <td>Instant access</td>
+          <td class="col-digital">✔ Delivered in seconds</td>
+          <td class="col-physical" style="color:#ccc;">✘ Days/weeks</td>
+        </tr>
+        <tr>
+          <td>Works in Saudi Arabia</td>
+          <td class="col-digital">✔ Offline on your phone</td>
+          <td class="col-physical" style="color:#ccc;">✘ May not ship there</td>
+        </tr>
+        <tr>
+          <td>Can print a copy</td>
+          <td class="col-digital">✔ Print-friendly PDF</td>
+          <td class="col-physical" style="color:#ccc;">✘ Can't customise</td>
+        </tr>
+        <tr>
+          <td>Zoom Arabic text</td>
+          <td class="col-digital">✔ Pinch to zoom</td>
+          <td class="col-physical" style="color:#ccc;">✘ Fixed print size</td>
+        </tr>
+        <tr>
+          <td>Extra 20% discount</td>
+          <td class="col-digital">✔ Code HAJJ2026</td>
+          <td class="col-physical" style="color:#ccc;">✘ Not available</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:0.8rem;color:var(--muted);">The digital guide gives you everything a physical book does — plus the flexibility to use it on your phone during Hajj, without extra weight in your bag.</p>
+  </div>
+</section>
+
+<!-- ══ PROMISE ══ -->
+<section class="promise-section reveal">
+  <div class="container">
+    <div class="promise-box">
+      <p class="section-label">The Promise of Hajj</p>
+      <div class="section-divider"></div>
+      <p class="promise-arabic">« الحج المبرور ليس له جزاء إلا الجنة »</p>
+      <p class="promise-hadith">"An accepted Hajj has no reward except Paradise."</p>
+      <p class="promise-ref">— Sahih Bukhari 1773 · Sahih Muslim 1349</p>
+      <p class="promise-text">
+        You have saved for this journey. You have waited for this journey. Now protect it.<br><br>
+        The biggest regret pilgrims share is <strong>not knowing what to say, when to say it, and why</strong>. This guide fixes that completely — so on the Day of Arafat, the most blessed day of the year, you are not searching your phone. <strong>You are present. You are making dua. You are earning your Hajj Mabrur.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BUNDLE BONUS ══ -->
+<section class="bonus-section reveal">
+  <div class="container">
+    <p class="section-label" style="position:relative;z-index:1;">Bundle Includes</p>
+    <h2 class="section-title">Everything In One Package</h2>
+    <div class="section-divider"></div>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <span class="bonus-icon">📖</span>
+        <span class="bonus-tag">Included</span>
+        <h4>Complete Hajj Guide</h4>
+        <p>Full illustrated step-by-step guide covering all 11 rituals with authentic Arabic narration and English explanation</p>
+      </div>
+      <div class="bonus-card">
+        <span class="bonus-icon">🤲</span>
+        <span class="bonus-tag">Included</span>
+        <h4>41 Authentic Duas</h4>
+        <p>Complete dua guide with Arabic, transliteration, meaning &amp; hadith reference for every step of Hajj</p>
+      </div>
+    </div>
+    <div style="margin-top:28px;position:relative;z-index:1;text-align:center;">
+      <a href="https://payhip.com/b/Hld0u" target="_blank" rel="noopener" class="btn-primary">Get Both Books — Only $10</a>
+      <p style="margin-top:12px;font-size:0.76rem;color:rgba(255,255,255,0.32);letter-spacing:0.8px;">Use code HAJJ2026 for extra 20% off at checkout</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testimonial-section">
+  <div class="container">
+    <p class="section-label">Early Feedback</p>
+    <h2 class="section-title">What People Are Saying</h2>
+    <div class="section-divider"></div>
+    <div class="testimonial-slider">
+      <div class="testimonial-card active" data-index="0">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"I was overwhelmed trying to prepare for Hajj — information was scattered everywhere. This guide brought it all together in the right order, with the actual duas I needed. On the Day of Arafat I wasn't looking at my phone trying to find what to say. I was just... making dua. Alhamdulillah."</p>
+        <div class="t-author">
+          <div class="t-avatar">AK</div>
+          <div class="t-info">
+            <div class="t-name">Ahmed K.</div>
+            <div class="t-role">First-time pilgrim</div>
+          </div>
+          <div class="t-badge">Early Reader</div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-index="1">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"The illustrations made such a difference. Before Hajj I had never seen Mina, never visualised Muzdalifah. The guide showed me exactly what each place looks like and what I would be doing there. When I arrived it felt familiar, not foreign. That peace of mind was worth every penny."</p>
+        <div class="t-author">
+          <div class="t-avatar">SA</div>
+          <div class="t-info">
+            <div class="t-name">Sana A.</div>
+            <div class="t-role">Hajj Pilgrim, UK</div>
+          </div>
+          <div class="t-badge">Early Reader</div>
+        </div>
+      </div>
+      <div class="testimonial-dots">
+        <button class="t-dot active" onclick="setTestimonial(0)" aria-label="Review 1"></button>
+        <button class="t-dot" onclick="setTestimonial(1)" aria-label="Review 2"></button>
+      </div>
+      <div class="pending-reviews">
+        <strong>We are gathering more reviews from this Hajj season.</strong><br>
+        These are early responses from our first readers. We will update this section as more reviews come in — insha'Allah.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq-section reveal">
+  <div class="container">
+    <p class="section-label">Common Questions</p>
+    <h2 class="section-title">Everything You Want to Know</h2>
+    <div class="section-divider"></div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Is this suitable for first-time Hajj pilgrims? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          <strong>Absolutely yes.</strong> This guide is written specifically for someone doing Hajj for the first time. Every step is explained in plain, simple English with no assumed knowledge. From the moment you wear Ihram to your Farewell Tawaf, you will know exactly what to do and what to say.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Are the duas really authentic? How do I know? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          Every single dua includes its <strong>exact source reference</strong> — book name and hadith number. Sources include Quran, Sahih Bukhari, Sahih Muslim, Abu Dawud, Tirmidhi and other verified collections. No da'if or mawdu' supplications included. You can verify every reference yourself.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What format is the guide? Can I print it? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          The guide is a <strong>PDF digital download</strong> — instant access the moment you complete your purchase. Read it on your phone, tablet or laptop. It is also fully print-friendly, so you can print a physical copy to carry in your bag during Hajj.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Does it cover all three types of Hajj? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          Yes. <strong>Hajj Al-Tamattu, Hajj Al-Ifrad and Hajj Al-Qiran</strong> are all covered. Most pilgrims from outside Saudi Arabia perform Tamattu, which also receives the most detailed coverage in the guide.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How do I use the discount code HAJJ2026? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          Apply code <strong>HAJJ2026</strong> at checkout for an extra 20% off. The guide is already reduced from $19 to $10 — the code saves you an additional 20% on top. This is a limited Hajj season offer and will be removed once the season ends.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What language is the guide written in? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          The main guide is written in <strong>clear, simple English</strong> with all Arabic text preserved in original script throughout. Every dua includes original Arabic, phonetic transliteration and full English meaning — accessible for Arabic and non-Arabic speakers alike.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What if I buy it and it's not for me? <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">
+          We want you to go to Hajj confident and prepared. If after purchasing you feel the guide genuinely didn't deliver on what was promised, reach out to us directly and we will make it right. Our goal is your Hajj Mabrur — not just a sale.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section class="final-cta" id="get-it">
+  <div class="container">
+    <p class="section-label">Get Your Copy</p>
+    <h2 class="section-title">Begin Your Sacred Journey<br>Fully Prepared</h2>
+    <div class="section-divider"></div>
+
+    <div class="offer-box">
+      <div class="price-row">
+        <span class="price-original">$19</span>
+        <span class="price-sale">$10</span>
+        <span class="price-badge">47% Off</span>
+      </div>
+      <p class="price-note">Complete Bundle · Both Books · Instant PDF Download</p>
+      <div class="code-box">
+        Apply at checkout for extra 20% off:
+        <strong>HAJJ2026</strong>
+      </div>
+      <a href="https://payhip.com/b/Hld0u" target="_blank" rel="noopener" class="btn-primary">Download Now — Instant Access</a>
+      <p class="guarantee">🔒 Secure checkout · PDF delivered instantly · Hajj Season Price</p>
+    </div>
+
+    <p class="final-tagline">
+      Thousands of pilgrims go to Hajj every year wishing they had been more prepared. <strong>You will not be one of them.</strong> This guide ensures every moment of your sacred journey is spent in worship — not wondering what comes next.
+    </p>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<div class="footer-strip">
+  <p class="footer-arabic">ربنا تقبل منا إنك أنت السميع العليم</p>
+  <p class="footer-text">Our Lord, accept from us. Indeed, You are the Hearing, the Knowing. — Quran 2:127</p>
+</div>
+
+<script>
+// ── FAQ Toggle with smooth animation ──
+function toggleFAQ(btn) {
+  const item = btn.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const isOpen = btn.classList.contains('open');
+
+  // Close all
+  document.querySelectorAll('.faq-q.open').forEach(b => {
+    b.classList.remove('open');
+    b.parentElement.querySelector('.faq-a').classList.remove('open');
+  });
+
+  if (!isOpen) {
+    btn.classList.add('open');
+    answer.classList.add('open');
+    // Smooth scroll into view on mobile
+    if (window.innerWidth < 768) {
+      setTimeout(() => {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  }
+}
+
+// ── Sticky bars ──
+
+const stickyMobile = document.getElementById('stickyMobile');
+const hero         = document.querySelector('.hero');
+let mobileShown    = false;
+
+window.addEventListener('scroll', () => {
+  const heroBottom = hero.getBoundingClientRect().bottom;
+
+
+  // Mobile bottom bar — show after scrolling 200px
+  if (window.scrollY > 200 && !mobileShown) {
+    stickyMobile.style.display = 'flex';
+    setTimeout(() => stickyMobile.classList.add('visible'), 10);
+    mobileShown = true;
+  }
+}, { passive: true });
+
+// Show mobile bar only on mobile
+function initMobileBar() {
+  if (window.innerWidth < 768) {
+    stickyMobile.style.display = 'flex';
+  }
+}
+window.addEventListener('resize', initMobileBar);
+initMobileBar();
+
+// ── Testimonial Slider ──
+let currentTestimonial = 0;
+const cards = document.querySelectorAll('.testimonial-card');
+const dots  = document.querySelectorAll('.t-dot');
+
+function setTestimonial(index) {
+  cards.forEach(c => c.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+  cards[index].classList.add('active');
+  dots[index].classList.add('active');
+  currentTestimonial = index;
+}
+
+setInterval(() => {
+  setTestimonial((currentTestimonial + 1) % cards.length);
+}, 6000);
+
+// ── Countdown Timer (48hr, persists via sessionStorage) ──
+function updateCountdown() {
+  let endTime = sessionStorage.getItem('hajj_cd_end');
+  if (!endTime) {
+    endTime = Date.now() + 48 * 60 * 60 * 1000;
+    sessionStorage.setItem('hajj_cd_end', endTime);
+  }
+  const remaining = Math.max(0, endTime - Date.now());
+  const h = Math.floor(remaining / 3600000);
+  const m = Math.floor((remaining % 3600000) / 60000);
+  const s = Math.floor((remaining % 60000) / 1000);
+
+  const pad = n => String(n).padStart(2, '0');
+  document.getElementById('cd-h').textContent = pad(h);
+  document.getElementById('cd-m').textContent = pad(m);
+  document.getElementById('cd-s').textContent = pad(s);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── Scroll Reveal ──
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── Smooth CTA scroll for internal links ──
+document.querySelectorAll('a[href="#get-it"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.getElementById('get-it').scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
